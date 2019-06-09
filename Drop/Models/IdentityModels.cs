@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Drop.SqlViews;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -21,7 +22,7 @@ namespace Drop.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DropDbContext", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +30,7 @@ namespace Drop.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Alimente> Alimente { get; set; }
     }
 }
