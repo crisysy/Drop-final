@@ -1,7 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Drop.SqlViews;
+using Drop.ValueObjects;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -17,6 +19,8 @@ namespace Drop.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public DateTime DataNasterii { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -31,6 +35,9 @@ namespace Drop.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Alimente> Alimente { get; set; }
+        public DbSet<Aliment> Alimente { get; set; }
+        public DbSet<AportAlimentar> AportAlimentar { get; set; }
+        public DbSet<Donatie> Donatii { get; set; }
+        public DbSet<Profil> Profiluri { get; set; }
     }
 }

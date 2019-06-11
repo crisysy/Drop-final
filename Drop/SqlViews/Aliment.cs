@@ -8,7 +8,7 @@ using System.Web;
 namespace Drop.SqlViews
 {
     [Table("Alimente")]
-    public class Alimente
+    public class Aliment
     {
         [Key]
         public Guid Id { get; set; }
