@@ -185,6 +185,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlimentatieController.cs" />
+    <Compile Include="Controllers\DonatieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
@@ -202,6 +204,10 @@
     <Compile Include="Migrations\201906111255344_SeparareProfl.cs" />
     <Compile Include="Migrations\201906111255344_SeparareProfl.Designer.cs">
       <DependentUpon>201906111255344_SeparareProfl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906111720300_add_tipDontie.cs" />
+    <Compile Include="Migrations\201906111720300_add_tipDontie.Designer.cs">
+      <DependentUpon>201906111720300_add_tipDontie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -341,9 +347,14 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Profil\Edit.cshtml" />
     <Content Include="Views\Profil\Succes.cshtml" />
+    <Content Include="Views\Donatie\Index.cshtml" />
+    <Content Include="Views\Donatie\Create.cshtml" />
+    <Content Include="Views\Donatie\Edit.cshtml" />
+    <Content Include="Views\Donatie\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Alimentatie\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -360,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906111255344_SeparareProfl.resx">
       <DependentUpon>201906111255344_SeparareProfl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906111720300_add_tipDontie.resx">
+      <DependentUpon>201906111720300_add_tipDontie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

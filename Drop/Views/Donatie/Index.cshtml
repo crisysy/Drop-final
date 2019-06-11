@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Drop.SqlViews.Donatie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Donații</h2>
+
+<div class="alert alert-dismissible alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Felicitări pentru gestul făcut!</strong> Pentru a introduce cea mai recentă donație, folosiți butonul de mai jos.
+</div>
+
+<p class="btn btn-secondary">@Html.ActionLink("Adăugați o donație nouă", "Create")</p>
+
+<h3>Istoricul donațiilor</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Centru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oras)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipDonatie)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data, "{0:MM/dd/yyyy}")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Centru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oras)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipDonatie)
+        </td>
+        <td>
+            @Html.ActionLink("Editare", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Ștergere", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

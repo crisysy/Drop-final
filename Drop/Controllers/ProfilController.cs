@@ -71,30 +71,6 @@ namespace Drop.Controllers
                 return RedirectToAction("Succes");
             }
 
-
-
-            //if (ModelState.IsValid)
-            //{
-            //    db.Entry(profil).State = EntityState.Modified;
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-
-            //var currentUserId = User.Identity.GetUserId();
-            //var currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserId);
-            //var userinfo = new ProfilViewModel
-            //{
-            //    Id = currentUserId,
-            //    Nume = currentUser.Nume,
-            //    Prenume = currentUser.Prenume,
-            //    Oras = currentUser.Oras,
-            //    Sex = currentUser.Sex,
-            //    Greutate = currentUser.Greutate,
-            //    Inaltime = currentUser.Inaltime,
-            //    GrupaSanguina = currentUser.GrupaSanguina,
-            //    Rh = currentUser.Rh
-            //};
-
             return View(profil);
         }
 

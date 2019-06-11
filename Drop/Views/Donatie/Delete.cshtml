@@ -1,0 +1,56 @@
+﻿@model Drop.SqlViews.Donatie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 >Detalii Donație</h2>
+
+<h3 class="text-danger">Stergeți această donație?</h3>
+<div>
+    <h4>Donatie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Centru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Centru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oras)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TipDonatie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipDonatie)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Șterge" class="btn btn-default" /> |
+            @Html.ActionLink("Înapoi", "Index")
+        </div>
+    }
+</div>
