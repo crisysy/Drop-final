@@ -24,14 +24,17 @@ namespace Drop.SqlViews
 
         public string Prenume { get; set; }
 
+        [Display(Name = "Oraș")]
         public string Oras { get; set; }
 
         public Sex? Sex { get; set; }
 
         public int? Greutate { get; set; }
 
+        [Display(Name = "Înălțime")]
         public int? Inaltime { get; set; }
 
+        [Display(Name = "Grupa Sanguină")]
         public GrupeSanguine? GrupaSanguina { get; set; }
 
         public Rh? Rh { get; set; }

@@ -16,7 +16,7 @@ namespace Drop.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         
-        public ActionResult Index()
+        public ActionResult Succes()
         {
             return View();
         }
@@ -62,13 +62,13 @@ namespace Drop.Controllers
                 {
                     db.Entry(profil).State = EntityState.Modified;
                     db.SaveChanges();
-                    return RedirectToAction("Edit");
+                    return RedirectToAction("Succes");
                 }
             } else
             {
                 db.Profiluri.Add(profil);
                 db.SaveChanges();
-                return RedirectToAction("Edit");
+                return RedirectToAction("Succes");
             }
 
 
