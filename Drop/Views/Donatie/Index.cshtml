@@ -15,42 +15,45 @@
 
 <h3>Istoricul donațiilor</h3>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Centru)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Oras)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TipDonatie)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data, "{0:MM/dd/yyyy}")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Centru)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Oras)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipDonatie)
-        </td>
-        <td>
-            @Html.ActionLink("Editare", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Ștergere", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
-
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Centru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipDonatie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Data, "{0:MM/dd/yyyy}")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Centru)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oras)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipDonatie)
+                </td>
+                <td>
+                    @Html.ActionLink("Editare", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Ștergere", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

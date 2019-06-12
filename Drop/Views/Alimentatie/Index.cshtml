@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Drop.SqlViews.AportAlimentar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Aportul alimentar de azi</h2>
+
+<p class="btn btn-secondary">@Html.ActionLink("Adăugați", "Create")</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Aliment
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantitate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aliment.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantitate)
+                </td>
+                <td>
+                    @Html.ActionLink("Editare", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Ștergere", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

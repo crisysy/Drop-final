@@ -351,10 +351,10 @@
     <Content Include="Views\Donatie\Create.cshtml" />
     <Content Include="Views\Donatie\Edit.cshtml" />
     <Content Include="Views\Donatie\Delete.cshtml" />
+    <Content Include="Views\Alimentatie\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Alimentatie\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

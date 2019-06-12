@@ -1,7 +1,11 @@
 ﻿using Drop.Models;
+using Drop.SqlViews;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,28 +19,28 @@ namespace Drop.Controllers
         // GET: Alimentatie
         public ActionResult Index()
         {
-            return View();
-        }
-
-        // GET: Alimentatie/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            var currentUserId = User.Identity.GetUserId();
+            var today = DateTime.Today;
+            var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == today);
+            return View(alimentatieDeAzi.ToList());
         }
 
         // GET: Alimentatie/Create
-        public ActionResult Create()
+        public ActionResult Add()
         {
             return View();
         }
 
         // POST: Alimentatie/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Add([Bind(Include = "Id,IdUtilizator,Data,IdAliment,Cantitate")] AportAlimentar alimentatie)
         {
             try
             {
-                // TODO: Add insert logic here
+                alimentatie.Id = Guid.NewGuid();
+                alimentatie.IdUtilizator = User.Identity.GetUserId();
+                db.AportAlimentar.Add(alimentatie);
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -47,40 +51,52 @@ namespace Drop.Controllers
         }
 
         // GET: Alimentatie/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AportAlimentar alimentatie = db.AportAlimentar.Find(id);
+            if (alimentatie == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(alimentatie);
         }
 
         // POST: Alimentatie/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit([Bind(Include = "Id,IdUtilizator,Data,IdAliment,Cantitate")] AportAlimentar alimentatie)
         {
             try
             {
-                // TODO: Add update logic here
+                alimentatie.IdUtilizator = User.Identity.GetUserId();
 
+                if (ModelState.IsValid)
+                {
+                    db.Entry(alimentatie).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
+
         }
 
         // GET: Alimentatie/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Alimentatie/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id)
         {
             try
             {
-                // TODO: Add delete logic here
+                Donatie donatie = db.Donatii.Find(id);
+                db.Donatii.Remove(donatie);
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }
