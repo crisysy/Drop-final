@@ -25,15 +25,24 @@ namespace Drop.Controllers
             return View(alimentatieDeAzi.ToList());
         }
 
-        // GET: Alimentatie/Create
-        public ActionResult Add()
+        public ActionResult Istoric()
         {
+            var currentUserId = User.Identity.GetUserId();
+            var yesterday = DateTime.Today.AddDays(-1); ;
+            var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == yesterday);
+            return View(alimentatieDeAzi.ToList());
+        }
+
+        // GET: Alimentatie/Create
+        public ActionResult Create()
+        {
+            ViewBag.IdAliment = new SelectList(db.Alimente, "Id", "Nume");
             return View();
         }
 
         // POST: Alimentatie/Create
         [HttpPost]
-        public ActionResult Add([Bind(Include = "Id,IdUtilizator,Data,IdAliment,Cantitate")] AportAlimentar alimentatie)
+        public ActionResult Create([Bind(Include = "Id,IdUtilizator,Data,IdAliment,Cantitate")] AportAlimentar alimentatie)
         {
             try
             {
@@ -46,7 +55,8 @@ namespace Drop.Controllers
             }
             catch
             {
-                return View();
+                ViewBag.IdAliment = new SelectList(db.Alimente, "Id", "Nume", alimentatie.IdAliment);
+                return View(alimentatie);
             }
         }
 

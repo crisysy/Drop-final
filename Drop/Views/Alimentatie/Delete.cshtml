@@ -1,0 +1,51 @@
+﻿@model Drop.SqlViews.AportAlimentar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Detalii Aliment</h2>
+
+<h3 class="text-danger">Stergeți această intrare?</h3>
+<div>
+    <h4>AportAlimentar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            Aliment
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aliment.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantitate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantitate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Înapoi la listă", "Index")
+        </div>
+    }
+</div>

@@ -16,23 +16,23 @@ namespace Drop.SqlViews
         [Required]
         public string Nume { get; set; }
 
-        public int ValoareEnergetica { get; set; }
+        public decimal ValoareEnergetica { get; set; }
 
-        public int Proteine { get; set; }
+        public decimal Proteine { get; set; }
 
-        public int Carbohidrati { get; set; }
+        public decimal Carbohidrati { get; set; }
 
-        public int Glucide {get; set;}
+        public decimal Glucide {get; set;}
 
-        public int Fier { get; set; }
+        public decimal Fier { get; set; }
 
-        public int VitaminaC { get; set; }
+        public decimal VitaminaC { get; set; }
 
-        public int AcidFolic { get; set; }
+        public decimal AcidFolic { get; set; }
 
-        public int Riboflavina { get; set; }
+        public decimal Riboflavina { get; set; }
 
-        public int Piridoxina { get; set; }
+        public decimal Piridoxina { get; set; }
 
         public int Zaharuri { get; set; }
 

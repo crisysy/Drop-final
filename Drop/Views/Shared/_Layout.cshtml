@@ -27,16 +27,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("About", "Home")">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Edit", "Profil")">Profil Utilizator</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Alimentatie")">Aport alimentar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Index", "Donatie")">Am donat!</a>
-                </li>
-
+                @using Microsoft.AspNet.Identity
+                @if (Request.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Edit", "Profil")">Profil Utilizator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Alimentatie")">Aport alimentar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Donatie")">Am donat!</a>
+                    </li>
+                }
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

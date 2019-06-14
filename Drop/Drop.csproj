@@ -209,6 +209,14 @@
     <Compile Include="Migrations\201906111720300_add_tipDontie.Designer.cs">
       <DependentUpon>201906111720300_add_tipDontie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906141104260_Add_PerioadeAsteptare.cs" />
+    <Compile Include="Migrations\201906141104260_Add_PerioadeAsteptare.Designer.cs">
+      <DependentUpon>201906141104260_Add_PerioadeAsteptare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906141135575_Update_AlimenteFromIntToDecimal.cs" />
+    <Compile Include="Migrations\201906141135575_Update_AlimenteFromIntToDecimal.Designer.cs">
+      <DependentUpon>201906141135575_Update_AlimenteFromIntToDecimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -225,6 +233,7 @@
     <Compile Include="SqlViews\Aliment.cs" />
     <Compile Include="SqlViews\AportAlimentar.cs" />
     <Compile Include="SqlViews\Donatie.cs" />
+    <Compile Include="SqlViews\PerioadaAsteptare.cs" />
     <Compile Include="SqlViews\Profil.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ValueObjects\GrupeSanguine.cs" />
@@ -352,6 +361,10 @@
     <Content Include="Views\Donatie\Edit.cshtml" />
     <Content Include="Views\Donatie\Delete.cshtml" />
     <Content Include="Views\Alimentatie\Index.cshtml" />
+    <Content Include="Views\Alimentatie\Create.cshtml" />
+    <Content Include="Views\Alimentatie\Edit.cshtml" />
+    <Content Include="Views\Alimentatie\Delete.cshtml" />
+    <Content Include="Views\Alimentatie\Istoric.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -374,6 +387,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906111720300_add_tipDontie.resx">
       <DependentUpon>201906111720300_add_tipDontie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141104260_Add_PerioadeAsteptare.resx">
+      <DependentUpon>201906141104260_Add_PerioadeAsteptare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141135575_Update_AlimenteFromIntToDecimal.resx">
+      <DependentUpon>201906141135575_Update_AlimenteFromIntToDecimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

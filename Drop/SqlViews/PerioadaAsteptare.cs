@@ -1,4 +1,5 @@
 ﻿using Drop.Models;
+using Drop.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,8 +9,8 @@ using System.Web;
 
 namespace Drop.SqlViews
 {
-    [Table("AportAlimentar")]
-    public class AportAlimentar
+    [Table("PerioadeAsteptare")]
+    public class PerioadaAsteptare
     {
         [Key]
         public Guid Id { get; set; }
@@ -19,15 +20,9 @@ namespace Drop.SqlViews
         [ForeignKey("IdUtilizator")]
         public virtual ApplicationUser User { get; set; }
 
-        public DateTime Data { get; set; }
+        public TipDonatie TipDonatie { get; set; }
 
-        public Guid IdAliment { get; set; }
-
-        [ForeignKey("IdAliment")]
-        public virtual Aliment Aliment { get; set; }
-
-        [Display(Name = "Cantitate (g)")]
-        public int Cantitate { get; set; }
+        public int Interval { get; set; }
 
     }
 }
