@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Drop.SqlViews.PerioadaAsteptare>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Perioada de recuperare dintre donații</h2>
+<h4>Nu modificați valorile decât dacă v-a fost recomandat de medicul dumneavoastră</h4>
+<p>
+   <br>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TipDonatie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Interval)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipDonatie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Interval)
+                </td>
+                <td>
+                    @Html.ActionLink("Editează", "Edit", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

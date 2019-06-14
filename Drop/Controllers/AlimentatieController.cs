@@ -1,5 +1,6 @@
 ﻿using Drop.Models;
 using Drop.SqlViews;
+using Drop.ValueObjects;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace Drop.Controllers
         public ActionResult Index()
         {
             var currentUserId = User.Identity.GetUserId();
+            var currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserId);
+            var profil = db.Profiluri.First(x => x.IdUtilizator == currentUserId);
             var today = DateTime.Today;
             var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == today);
 
@@ -45,7 +48,29 @@ namespace Drop.Controllers
                 b6 = b6 + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Piridoxina/100;
                 vitC = vitC + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).VitaminaC/100;
             }
-            ViewBag.progrescaloric = calorii * 100 / 2000;
+            decimal indiceStilDeViata = 1.55m;
+            switch (profil.StilDeViata)
+            {
+                case StilViata.Sedentar:
+                    indiceStilDeViata = 1.2m;
+                    break;
+                case StilViata.PutinActiv:
+                    indiceStilDeViata = 1.37m;
+                    break;
+                case StilViata.Moderat:
+                    indiceStilDeViata = 1.55m;
+                    break;
+                case StilViata.Activ:
+                    indiceStilDeViata = 1.72m;
+                    break;
+                case StilViata.FoarteActiv:
+                    indiceStilDeViata = 1.9m;
+                    break;
+            }
+            var age = today.Year - currentUser.DataNasterii.Year;
+
+            var aportCaloricNecesar = profil.Sex == Sex.Feminin ? (655.1m + (9.563m * profil.Greutate) + (1.85m * profil.Inaltime) - (4.676m * age))*indiceStilDeViata : (66.47m + (13.75m * profil.Greutate) + (5.003m * profil.Inaltime) - (6.755m * age))*indiceStilDeViata;
+            ViewBag.progrescaloric = calorii * 100 / aportCaloricNecesar;
             ViewBag.progresproteine = proteine * 100 / 45;
             ViewBag.progresgrasimi = grasimi * 100 / 65;
             ViewBag.progrescarbohidrati = carbohidrati * 100 / 130;
@@ -63,8 +88,65 @@ namespace Drop.Controllers
         public ActionResult Istoric()
         {
             var currentUserId = User.Identity.GetUserId();
-            var yesterday = DateTime.Today.AddDays(-1); ;
+            var currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserId);
+            var profil = db.Profiluri.First(x => x.IdUtilizator == currentUserId);
+            var today = DateTime.Today;
+            var yesterday = DateTime.Today.AddDays(-1); 
             var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == yesterday);
+            decimal calorii = 0;
+            decimal proteine = 0;
+            decimal grasimi = 0;
+            decimal carbohidrati = 0;
+            decimal fier = 0;
+            decimal acidFolic = 0;
+            decimal b2 = 0;
+            decimal b6 = 0;
+            decimal vitC = 0;
+            foreach (var aliment in alimentatieDeAzi)
+            {
+                calorii = calorii + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).ValoareEnergetica / 100;
+                proteine = proteine + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Proteine / 100;
+                grasimi = grasimi + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Glucide / 100;
+                carbohidrati = carbohidrati + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Carbohidrati / 100;
+                fier = fier + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Fier / 100;
+                acidFolic = acidFolic + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).AcidFolic / 100;
+                b2 = b2 + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Riboflavina / 100;
+                b6 = b6 + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Piridoxina / 100;
+                vitC = vitC + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).VitaminaC / 100;
+            }
+            decimal indiceStilDeViata = 1.55m;
+            switch (profil.StilDeViata)
+            {
+                case StilViata.Sedentar:
+                    indiceStilDeViata = 1.2m;
+                    break;
+                case StilViata.PutinActiv:
+                    indiceStilDeViata = 1.37m;
+                    break;
+                case StilViata.Moderat:
+                    indiceStilDeViata = 1.55m;
+                    break;
+                case StilViata.Activ:
+                    indiceStilDeViata = 1.72m;
+                    break;
+                case StilViata.FoarteActiv:
+                    indiceStilDeViata = 1.9m;
+                    break;
+            }
+            var age = today.Year - currentUser.DataNasterii.Year;
+
+            var aportCaloricNecesar = profil.Sex == Sex.Feminin ? (655.1m + (9.563m * profil.Greutate) + (1.85m * profil.Inaltime) - (4.676m * age)) * indiceStilDeViata : (66.47m + (13.75m * profil.Greutate) + (5.003m * profil.Inaltime) - (6.755m * age)) * indiceStilDeViata;
+
+            ViewBag.progrescaloric = calorii * 100 / aportCaloricNecesar;
+            ViewBag.progresproteine = proteine * 100 / 45;
+            ViewBag.progresgrasimi = grasimi * 100 / 65;
+            ViewBag.progrescarbohidrati = carbohidrati * 100 / 130;
+            ViewBag.progresfier = fier * 100 / 15;
+            ViewBag.progresAcidFolic = acidFolic * 100 / 400;
+            ViewBag.progresB2 = b2 * 100;
+            ViewBag.progresB6 = b6 * 100 / 1.2m;
+            ViewBag.progresVitC = vitC * 100 / 65;
+
             return View(alimentatieDeAzi.ToList());
         }
 

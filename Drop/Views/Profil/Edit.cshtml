@@ -77,6 +77,13 @@
             @Html.ValidationMessageFor(model => model.Rh, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.StilDeViata, htmlAttributes: new { @class = "control-label col-sm-2" })
+        <div class="col-sm-10">
+            @Html.EnumDropDownListFor(model => model.StilDeViata, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.StilDeViata, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-md-10">

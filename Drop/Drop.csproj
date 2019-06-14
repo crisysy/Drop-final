@@ -188,8 +188,10 @@
     <Compile Include="Controllers\AlimentatieController.cs" />
     <Compile Include="Controllers\DonatieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IntervalController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
+    <Compile Include="Controllers\ProgramareController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,6 +219,10 @@
     <Compile Include="Migrations\201906141135575_Update_AlimenteFromIntToDecimal.Designer.cs">
       <DependentUpon>201906141135575_Update_AlimenteFromIntToDecimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906141958399_Add_StiDeViat.cs" />
+    <Compile Include="Migrations\201906141958399_Add_StiDeViat.Designer.cs">
+      <DependentUpon>201906141958399_Add_StiDeViat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -224,6 +230,7 @@
     <Compile Include="Models\MaxAgeAttribute.cs" />
     <Compile Include="Models\MinimumAgeAttribute.cs" />
     <Compile Include="Models\ProfilViewModel.cs" />
+    <Compile Include="Models\ProgramareViewModel.cs" />
     <Compile Include="Models\ProgresViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -240,6 +247,7 @@
     <Compile Include="ValueObjects\GrupeSanguine.cs" />
     <Compile Include="ValueObjects\Rh.cs" />
     <Compile Include="ValueObjects\Sex.cs" />
+    <Compile Include="ValueObjects\StilViata.cs" />
     <Compile Include="ValueObjects\TipDonatie.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -370,6 +378,9 @@
     <Content Include="Views\Alimentatie\Edit.cshtml" />
     <Content Include="Views\Alimentatie\Delete.cshtml" />
     <Content Include="Views\Alimentatie\Istoric.cshtml" />
+    <Content Include="Views\Interval\Index.cshtml" />
+    <Content Include="Views\Interval\Edit.cshtml" />
+    <Content Include="Views\Programare\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906141135575_Update_AlimenteFromIntToDecimal.resx">
       <DependentUpon>201906141135575_Update_AlimenteFromIntToDecimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141958399_Add_StiDeViat.resx">
+      <DependentUpon>201906141958399_Add_StiDeViat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

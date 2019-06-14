@@ -67,7 +67,7 @@ namespace Drop.Controllers
 
         // POST: Donatie/Edit/5
         [HttpPost]
-        public ActionResult Edit(Guid id, [Bind(Include = "Id,IdUtilizator,Data,Centru,Oras,TipDonatie")] Donatie donatie)
+        public ActionResult Edit([Bind(Include = "Id,IdUtilizator,Data,Centru,Oras,TipDonatie")] Donatie donatie)
         {
             try
             {

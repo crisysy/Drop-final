@@ -1,0 +1,164 @@
+﻿@using Drop.ValueObjects;
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+
+<h2>Pregătire donație</h2>
+
+<h4><br>Zile rămase</h4>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" style="width: @ViewBag.progres%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"> Zile rămase: @ViewBag.left </div>
+</div>
+
+
+@if (ViewBag.left == 0)
+{
+    <h3><br>Felicitări! Puteți să programați următoarea donație.</h3>
+    <h4>Înainte de a vă prezenta la centrul de transfuzie, verificați că veți putea dona la data dorită:</h4>
+    <p><br></p>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Ați consumat alcool în ultimele 24 de ore?</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck2">
+            <label class="custom-control-label" for="customCheck2">Ați contactat o boală înfecțioasă? (gripă, infecții bacteriene)</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck3">
+            <label class="custom-control-label" for="customCheck3">Ați folosit aspirină?</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck4">
+            <label class="custom-control-label" for="customCheck4">Ați luat antibiotice?</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck5">
+            <label class="custom-control-label" for="customCheck5">Suferiți de anemie?</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck6">
+            <label class="custom-control-label" for="customCheck6">Ați făcut un tatuaj în ultimele 4 luni?</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck7">
+            <label class="custom-control-label" for="customCheck7">Ați avut o intervenție chirurgicală în ultimul an?</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck8">
+            <label class="custom-control-label" for="customCheck8">Ați fost la dentist în ultimele 24 de ore?</label>
+        </div>
+        @if (ViewBag.sex == Sex.Feminin)
+        {
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck9">
+                <label class="custom-control-label" for="customCheck9">Sunteți însărcinată?</label>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck10">
+                <label class="custom-control-label" for="customCheck10">Dacă ați fost însărcinată, au trecut mai puțin de 6 luni de la naștere?</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck11">
+                <label class="custom-control-label" for="customCheck11">Dacă ați fost însărcinată și ați avut nevoie de transfuzii de sânge, au trecut cel puțin 12 luni de la naștere?</label>
+            </div>
+        }
+            <p><br></p>
+        <div id="terms"  class="alert alert-dismissible alert-danger" style="display: none">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Nu puteți dona acum. Vă rugăm așteptați până când redeveniți eligibil.
+        </div>
+    </div>
+
+}
+else
+{
+    <h4><br>Următoarea donație trebuie făcută dupa data de @ViewBag.data.ToString("dd/MM/yyyy")</h4>
+}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#customCheck1").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck2").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck3").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck4").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck5").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck6").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck7").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck8").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck9").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck10").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+        $("#customCheck11").click(function () {
+            if ($(this).is(":checked")) {
+                $("#terms").show();
+            } else {
+                $("#terms").hide();
+            }
+        });
+    });
+</script>

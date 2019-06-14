@@ -40,6 +40,7 @@ namespace Drop.Controllers
                 userinfo.Inaltime = profil.Inaltime;
                 userinfo.GrupaSanguina = profil.GrupaSanguina;
                 userinfo.Rh = profil.Rh;
+                userinfo.StilDeViata = profil.StilDeViata;
             } else
             {
                 userinfo.Id = Guid.NewGuid();
@@ -51,7 +52,7 @@ namespace Drop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = ("Id,IdUtilizator,Nume,Prenume,Oras,Sex,Greutate,Inaltime,GrupaSanguina,Rh"))] Profil profil)
+        public ActionResult Edit([Bind(Include = ("Id,IdUtilizator,Nume,Prenume,Oras,Sex,Greutate,Inaltime,GrupaSanguina,Rh,StilDeViata"))] Profil profil)
         {
 
             profil.IdUtilizator = User.Identity.GetUserId();
