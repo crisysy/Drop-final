@@ -224,6 +224,7 @@
     <Compile Include="Models\MaxAgeAttribute.cs" />
     <Compile Include="Models\MinimumAgeAttribute.cs" />
     <Compile Include="Models\ProfilViewModel.cs" />
+    <Compile Include="Models\ProgresViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -253,6 +254,7 @@
     <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Scripts\progressbar.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Pictures\logo.png">

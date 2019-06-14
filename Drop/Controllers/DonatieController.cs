@@ -19,7 +19,7 @@ namespace Drop.Controllers
         public ActionResult Index()
         {
             var currentUserId = User.Identity.GetUserId();
-            var donatii = db.Donatii.Where(x => x.IdUtilizator == currentUserId);
+            var donatii = db.Donatii.Where(x => x.IdUtilizator == currentUserId).OrderByDescending(x => x.Data);
 
             return View(donatii.ToList());
         }

@@ -22,6 +22,41 @@ namespace Drop.Controllers
             var currentUserId = User.Identity.GetUserId();
             var today = DateTime.Today;
             var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == today);
+
+            decimal calorii = 0;
+            decimal proteine = 0;
+            decimal grasimi = 0;
+            decimal carbohidrati = 0;
+            decimal fier = 0;
+            decimal acidFolic = 0;
+            decimal b2 = 0;
+            decimal b6 = 0;
+            decimal vitC = 0;
+
+            foreach (var aliment in alimentatieDeAzi)
+            {
+                calorii = calorii + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).ValoareEnergetica/100;
+                proteine = proteine + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Proteine/100;
+                grasimi = grasimi + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Glucide/100;
+                carbohidrati = carbohidrati + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Carbohidrati/100;
+                fier = fier + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Fier/100;
+                acidFolic = acidFolic + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).AcidFolic/100;
+                b2 = b2 + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Riboflavina/100;
+                b6 = b6 + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).Piridoxina/100;
+                vitC = vitC + aliment.Cantitate * db.Alimente.First(x => x.Id == aliment.IdAliment).VitaminaC/100;
+            }
+            ViewBag.progrescaloric = calorii * 100 / 2000;
+            ViewBag.progresproteine = proteine * 100 / 45;
+            ViewBag.progresgrasimi = grasimi * 100 / 65;
+            ViewBag.progrescarbohidrati = carbohidrati * 100 / 130;
+            ViewBag.progresfier = fier * 100 / 15;
+            ViewBag.progresAcidFolic = acidFolic * 100 / 400;
+            ViewBag.progresB2 = b2 * 100 ;
+            ViewBag.progresB6 = b6 * 100 / 1.2m;
+            ViewBag.progresVitC = vitC * 100 / 65;
+
+
+
             return View(alimentatieDeAzi.ToList());
         }
 
@@ -78,7 +113,7 @@ namespace Drop.Controllers
 
         // POST: Alimentatie/Edit/5
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "Id,IdUtilizator,Data,IdAliment,Cantitate")] AportAlimentar alimentatie)
+        public ActionResult Edit([Bind(Include = "Id,IdUtilizator,IdAliment,Data,Cantitate")] AportAlimentar alimentatie)
         {
             try
             {
@@ -104,8 +139,8 @@ namespace Drop.Controllers
         {
             try
             {
-                Donatie donatie = db.Donatii.Find(id);
-                db.Donatii.Remove(donatie);
+                AportAlimentar aliment = db.AportAlimentar.Find(id);
+                db.AportAlimentar.Remove(aliment);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");

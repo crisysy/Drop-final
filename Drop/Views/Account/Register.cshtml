@@ -36,11 +36,44 @@
             @Html.TextBoxFor(model => model.DataNasterii, new { @type = "date", @class = "form-control datepicker" })
         </div>
     </div>
-
+    <h2>
+        <br>Vă rugăm să confirmați că nu îndepliniți niciunul dintre următoarele criterii de excludere<br>
+    </h2>
+    <ul>
+        <li>Afecțiuni cardiovasculare (inclusiv hipertensiune arterială cronică în tratament, angină pectorală).</li>
+        <li>Etilism cronic</li>
+        <li>Schizofrenie</li>
+        <li>Epipelsie</li>
+        <li>Hepatită cronică</li>
+        <li>Ciroză hepatică</li>
+        <li>Malarie</li>
+        <li>Pancreatită</li>
+        <li>Cancer</li>
+        <li>Leucemii</li>
+        <li>Diabet zaharat</li>
+        <li>Tuberculoză</li>
+        <li>Hiperlipidemie</li>
+        <li>Astm bronșic</li>
+        <li>Alergie severă</li>
+        <li>Boli endocrine</li>
+        <li>Lupus eritematos diseminat și alte colagenoze</li>
+        <li>Psoriazis generalizat</li>
+        <li>Pensionare medicală, indiferent de diagnosticul de pensionare</li>
+        <li>Boli cu transmitere sexuală</li>
+        <li>Bărbat ce a întreținut relații sexuale cu alt bărbat</li>
+        <li>V-ați injectat vreodată droguri</li>
+        <li>Miopie peste 6 dioptrii</li>
+    </ul>
 
     <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="tick" onchange="document.getElementById('terms').disabled = !this.checked;">
+            <label class="custom-control-label" for="tick">Confirm că nu îndeplinsec niciun criteriu de excludere permanentă.</label>
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value="Register" name="terms" disabled id="terms" />
         </div>
     </div>
 }
