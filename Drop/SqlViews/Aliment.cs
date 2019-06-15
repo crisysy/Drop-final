@@ -34,7 +34,7 @@ namespace Drop.SqlViews
 
         public decimal Piridoxina { get; set; }
 
-        public int Zaharuri { get; set; }
+        public decimal Zaharuri { get; set; }
 
     }
 }

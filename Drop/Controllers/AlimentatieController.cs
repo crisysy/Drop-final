@@ -24,7 +24,7 @@ namespace Drop.Controllers
             var currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserId);
             var profil = db.Profiluri.First(x => x.IdUtilizator == currentUserId);
             var today = DateTime.Today;
-            var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == today);
+            var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == today).OrderBy(x=>x.Aliment.Nume);
 
             decimal calorii = 0;
             decimal proteine = 0;
@@ -92,7 +92,7 @@ namespace Drop.Controllers
             var profil = db.Profiluri.First(x => x.IdUtilizator == currentUserId);
             var today = DateTime.Today;
             var yesterday = DateTime.Today.AddDays(-1); 
-            var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == yesterday);
+            var alimentatieDeAzi = db.AportAlimentar.Where(x => x.IdUtilizator == currentUserId && DbFunctions.TruncateTime(x.Data) == yesterday).OrderBy(x => x.Aliment.Nume);
             decimal calorii = 0;
             decimal proteine = 0;
             decimal grasimi = 0;

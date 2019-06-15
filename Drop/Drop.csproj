@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201906141958399_Add_StiDeViat.Designer.cs">
       <DependentUpon>201906141958399_Add_StiDeViat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906151406027_corectatDecimal.cs" />
+    <Compile Include="Migrations\201906151406027_corectatDecimal.Designer.cs">
+      <DependentUpon>201906151406027_corectatDecimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -412,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906141958399_Add_StiDeViat.resx">
       <DependentUpon>201906141958399_Add_StiDeViat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906151406027_corectatDecimal.resx">
+      <DependentUpon>201906151406027_corectatDecimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
