@@ -69,7 +69,7 @@ namespace Drop.Controllers
             }
             var age = today.Year - currentUser.DataNasterii.Year;
 
-            var aportCaloricNecesar = profil.Sex == Sex.Feminin ? (655.1m + (9.563m * profil.Greutate) + (1.85m * profil.Inaltime) - (4.676m * age))*indiceStilDeViata : (66.47m + (13.75m * profil.Greutate) + (5.003m * profil.Inaltime) - (6.755m * age))*indiceStilDeViata;
+            var aportCaloricNecesar = profil.Sex == Sex.Feminin ? (655.1m + (9.563m * profil.Greutate) + (1.85m * profil.Inaltime) - (4.676m * age) - 161)*indiceStilDeViata : (66.47m + (13.75m * profil.Greutate) + (5.003m * profil.Inaltime) - (6.755m * age) + 5)*indiceStilDeViata;
             ViewBag.progrescaloric = calorii * 100 / aportCaloricNecesar;
             ViewBag.progresproteine = proteine * 100 / 45;
             ViewBag.progresgrasimi = grasimi * 100 / 65;
