@@ -15,10 +15,6 @@
 
         protected override void Seed(Drop.Models.ApplicationDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
             if (!context.Alimente.Any())
             {
                 context.Alimente.AddOrUpdate(new Aliment
