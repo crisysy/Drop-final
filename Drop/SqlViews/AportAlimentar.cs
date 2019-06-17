@@ -21,6 +21,7 @@ namespace Drop.SqlViews
 
         public DateTime Data { get; set; }
 
+        [Display(Name = "Aliment")]
         public Guid IdAliment { get; set; }
 
         [ForeignKey("IdAliment")]
