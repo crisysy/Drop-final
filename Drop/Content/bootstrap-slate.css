@@ -5617,7 +5617,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #7A8288;
+  color: #fff !important;
   text-align: center;
   white-space: nowrap;
   background-color: #3A3F44;
