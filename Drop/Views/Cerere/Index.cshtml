@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Drop.SqlViews.Cerere>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2><br>Cereri existente în sistem.</h2>
+<p class="btn btn-secondary">@Html.ActionLink("Adăugați o cerere nouă", "Create")</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th>
+                @Html.DisplayNameFor(model => model.Centru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLimita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonatiiNecesare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contributii)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GrupaSanguinaNecesara)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td scope="row">
+                @Html.DisplayFor(modelItem => item.Centru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLimita, "{0:MM/dd/yyyy}")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonatiiNecesare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contributii)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrupaSanguinaNecesara)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>

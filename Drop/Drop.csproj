@@ -186,6 +186,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlimentatieController.cs" />
+    <Compile Include="Controllers\CerereController.cs" />
     <Compile Include="Controllers\DonatieController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IntervalController.cs" />
@@ -227,6 +228,14 @@
     <Compile Include="Migrations\201906151406027_corectatDecimal.Designer.cs">
       <DependentUpon>201906151406027_corectatDecimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906221254432_add_cereri.cs" />
+    <Compile Include="Migrations\201906221254432_add_cereri.Designer.cs">
+      <DependentUpon>201906221254432_add_cereri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906221310162_add_dataLimita.cs" />
+    <Compile Include="Migrations\201906221310162_add_dataLimita.Designer.cs">
+      <DependentUpon>201906221310162_add_dataLimita.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -243,6 +252,7 @@
     </Compile>
     <Compile Include="SqlViews\Aliment.cs" />
     <Compile Include="SqlViews\AportAlimentar.cs" />
+    <Compile Include="SqlViews\Cerere.cs" />
     <Compile Include="SqlViews\Donatie.cs" />
     <Compile Include="SqlViews\PerioadaAsteptare.cs" />
     <Compile Include="SqlViews\Profil.cs" />
@@ -265,6 +275,8 @@
     <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\loading-bar.css" />
+    <Content Include="Scripts\loading-bar.js" />
     <Content Include="Scripts\progressbar.js" />
     <Content Include="favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -386,6 +398,10 @@
     <Content Include="Views\Interval\Index.cshtml" />
     <Content Include="Views\Interval\Edit.cshtml" />
     <Content Include="Views\Programare\Index.cshtml" />
+    <Content Include="Views\Cerere\Create.cshtml" />
+    <Content Include="Views\Cerere\Edit.cshtml" />
+    <Content Include="Views\Cerere\Index.cshtml" />
+    <Content Include="Views\Cerere\Contribuie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -420,6 +436,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906151406027_corectatDecimal.resx">
       <DependentUpon>201906151406027_corectatDecimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906221254432_add_cereri.resx">
+      <DependentUpon>201906221254432_add_cereri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906221310162_add_dataLimita.resx">
+      <DependentUpon>201906221310162_add_dataLimita.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

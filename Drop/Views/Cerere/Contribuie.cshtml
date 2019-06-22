@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Drop.SqlViews.Cerere>
+
+@{
+    ViewBag.Title = "Contribuie";
+}
+
+<h2><br>Contribuie la una dintre următoarele cereri.<br></h2>
+<p><br></p>
+<table class="table table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Centru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataLimita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonatiiNecesare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contributii)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GrupaSanguinaNecesara)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td scope="row">
+                @Html.DisplayFor(modelItem => item.Centru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLimita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonatiiNecesare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contributii)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrupaSanguinaNecesara)
+            </td>
+            <td>
+                <p class="btn btn-success"> @Html.ActionLink("Contribuie", "Contribuit", new { id = item.Id })</p>
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>

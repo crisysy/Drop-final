@@ -42,5 +42,6 @@ namespace Drop.Models
         public DbSet<Donatie> Donatii { get; set; }
         public DbSet<Profil> Profiluri { get; set; }
         public DbSet<PerioadaAsteptare> PerioadeAsteptare { get; set; }
+        public DbSet<Cerere> Cereri { get; set; }
     }
 }

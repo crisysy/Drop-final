@@ -19,33 +19,40 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                @*<li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index", "Home")">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a>
-        </li>*@
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("About", "Home")">Informații</a>
                 </li>
                 @using Microsoft.AspNet.Identity
                 @if (Request.IsAuthenticated)
                 {
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Edit", "Profil")">Profil Utilizator</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Interval")">Interval recuperare</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Alimentatie")">Aport alimentar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Programare")">Vreau să donez</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Donatie")">Am donat!</a>
-                    </li>
+                    if (this.User.IsInRole("Donator"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Edit", "Profil")">Profil Utilizator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Interval")">Interval recuperare</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Alimentatie")">Aport alimentar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Programare")">Vreau să donez</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Donatie")">Am donat!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Contribuie", "Cerere")">Verifică cereri</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Cerere")">Introduceți o cerere</a>
+                        </li>
+                    }
+
                 }
             </ul>
             @Html.Partial("_LoginPartial")
