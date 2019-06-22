@@ -30,9 +30,12 @@ namespace Drop.SqlViews
         public Sex? Sex { get; set; }
 
         [Display(Name = "Greutate (kg)")]
+        [Range(0, int.MaxValue, ErrorMessage = "Greutatea nu poate fi un număr negativ")]
+
         public int? Greutate { get; set; }
 
         [Display(Name = "Înălțime (cm)")]
+        [Range(0, int.MaxValue, ErrorMessage = "Înălțimea nu poate fi un număr negativ")]
         public int? Inaltime { get; set; }
 
         [Display(Name = "Grupa Sanguină")]

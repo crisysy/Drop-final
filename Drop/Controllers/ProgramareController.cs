@@ -41,6 +41,7 @@ namespace Drop.Controllers
             ViewBag.progres = (progres * 100) / (interval * 7);
             ViewBag.data = dataUrmatoareiDonatii;
             ViewBag.sex = profil.Sex;
+            ViewBag.oras = profil.Oras;
             return View();
         }
 

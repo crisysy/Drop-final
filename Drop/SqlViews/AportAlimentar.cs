@@ -28,6 +28,7 @@ namespace Drop.SqlViews
         public virtual Aliment Aliment { get; set; }
 
         [Display(Name = "Cantitate (g)")]
+        [Range(0, int.MaxValue, ErrorMessage = "Cantitatea nu poate fi un număr negativ")]
         public int Cantitate { get; set; }
 
     }
