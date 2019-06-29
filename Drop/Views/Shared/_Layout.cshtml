@@ -25,7 +25,14 @@
                 @using Microsoft.AspNet.Identity
                 @if (Request.IsAuthenticated)
                 {
-                    if (this.User.IsInRole("Donator"))
+                    if (User.IsInRole("Reprezentant"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Cerere")">Introduceți o cerere</a>
+                        </li>
+                    }
+                    else
+
                     {
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Edit", "Profil")">Profil Utilizator</a>
@@ -44,12 +51,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="@Url.Action("Contribuie", "Cerere")">Verifică cereri</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Cerere")">Introduceți o cerere</a>
                         </li>
                     }
 

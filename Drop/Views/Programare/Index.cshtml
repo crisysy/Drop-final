@@ -84,7 +84,47 @@
             Nu puteți dona acum. Vă rugăm așteptați până când redeveniți eligibil.
         </div>
     </div>
+    <div class="form-group">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Confirm că nu îndeplinesc niciunul dintre criteriile de excludere de mai sus.</label>
+        </div>
+    </div>
 
+    <div id="poateDona" style="display: none">
+
+        <div class="list-group">
+            <a href="https://www.google.com/maps/search/transfuzii+sanguine+@ViewBag.oras" class="list-group-item list-group-item-action bg-info flex-column align-items-start active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Centre de transfuzii sanguine în apropiere.</h5>
+                </div>
+                <p class="mb-1">Pentru a vedea centrele din @ViewBag.oras apăsați pe această fereastră.</p>
+            </a>
+            <a href="http://storage1.dms.mpinteractiv.ro/media/1/1481/10386/14870715/2/chestionar-pentru-donatorul-de-sange.pdf" class="list-group-item list-group-item-action bg-info flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Chestionar donare</h5>
+                </div>
+                <p class="mb-1">Pentru a vizualiza chestionarul pe care îl veți primi la centrul de transfuzii, apăsați pe această fereastră.</p>
+            </a>
+        </div>
+        <p><br></p>
+        <div class="alert alert-dismissible alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Nu uitați să aveți la dumneavoastră un act de identitate.
+        </div>
+        <div class="alert alert-dismissible alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Înainte de a dona, puteți avea un mic dejun puțin consistent, fără grăsimi.
+        </div>
+        <div class="alert alert-dismissible alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Este recomandat să aveți la dumneavostră o sticlă de apă și o gustare.
+        </div>
+        <div class="alert alert-dismissible alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Nu fumați cu o oră înainte și dupa donare.
+        </div>
+    </div>
 }
 else
 {
@@ -92,47 +132,7 @@ else
 }
 
 
-<div class="form-group">
-    <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1">
-        <label class="custom-control-label" for="customSwitch1">Confirm că nu îndeplinesc niciunul dintre criteriile de excludere de mai sus.</label>
-    </div>
-</div>
 
-<div id="poateDona" style="display: none">
-    
-    <div class="list-group">
-        <a href="https://www.google.com/maps/search/transfuzii+sanguine+@ViewBag.oras" class="list-group-item list-group-item-action bg-info flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Centre de trannsfuzii sanguine în apropiere.</h5>
-            </div>
-            <p class="mb-1">Pentru a vedea centrele din @ViewBag.oras apăsați pe această fereastră.</p>
-        </a>
-        <a href="http://storage1.dms.mpinteractiv.ro/media/1/1481/10386/14870715/2/chestionar-pentru-donatorul-de-sange.pdf" class="list-group-item list-group-item-action bg-info flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Chestionar donare</h5>
-            </div>
-            <p class="mb-1">Pentru a vizualiza chestionarul pe care îl veți primi la centrul de transfuzii, apăsați pe această fereastră.</p>
-        </a>
-    </div>
-    <p><br></p>
-    <div class="alert alert-dismissible alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        Nu uitați să aveți la dumneavoastră un act de identitate.
-    </div>
-    <div class="alert alert-dismissible alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        Înainte de a dona, puteți avea un mic dejun puțin consistent, fără grăsimi.
-    </div>
-    <div class="alert alert-dismissible alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        Este recomandat să aveți la dumneavostră o sticlă de apă și o gustare.
-    </div>
-    <div class="alert alert-dismissible alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        Nu fumați cu o oră înainte și dupa donare.
-    </div>
-</div>
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

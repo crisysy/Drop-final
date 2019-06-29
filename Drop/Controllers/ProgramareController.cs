@@ -1,4 +1,5 @@
 ﻿using Drop.Models;
+using Drop.SqlViews;
 using Drop.ValueObjects;
 using Microsoft.AspNet.Identity;
 using System;
@@ -19,7 +20,16 @@ namespace Drop.Controllers
             var currentUserId = User.Identity.GetUserId();
             var profil = db.Profiluri.First(x => x.IdUtilizator == currentUserId);
             var currentUser = db.Users.FirstOrDefault(u => u.Id == currentUserId);
-            var ultimaDonatie = db.Donatii.Where(x => x.IdUtilizator == currentUserId).OrderByDescending(x => x.Data).First();
+            var donatii = db.Donatii.Where(x => x.IdUtilizator == currentUserId).OrderByDescending(x => x.Data);
+            var ultimaDonatie = new Donatie();
+            if (donatii.Any())
+            {
+                ultimaDonatie = db.Donatii.Where(x => x.IdUtilizator == currentUserId).OrderByDescending(x => x.Data).First();
+            }
+            else
+            {
+                ultimaDonatie = null;
+            }
             DateTime dataUrmatoareiDonatii;
             TipDonatie tipDonatie;
             int interval = 16;
